@@ -1,0 +1,174 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #FEFDF8;
+  --cream2: #F5EFD8;
+  --ink: #0F0F12;
+  --ink2: #1A1A22;
+  --ink3: #252530;
+  --ink4: #383845;
+  --ink5: #6B6B80;
+  --ink6: #AEAEC0;
+  --lav50: #F5F2FD;
+  --lav100: #EDE8F8;
+  --lav200: #D9D0F0;
+  --lav400: #A090D8;
+  --lav600: #6B58B8;
+  --sage50: #F0F5F2;
+  --sage100: #E8F0EC;
+  --sage200: #CDDFD5;
+  --sage400: #8BB09A;
+  --sage600: #5C8470;
+  --blush100: #FDE8E8;
+  --blush400: #F0A0A0;
+  --border: rgba(0,0,0,0.07);
+  --border2: rgba(0,0,0,0.11);
+  --r-sm: 10px;
+  --r: 14px;
+  --r-lg: 18px;
+  --r-xl: 22px;
+  --shadow-soft: 0 2px 16px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 32px rgba(0,0,0,0.09);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+body.dark {
+  --cream: #0F0F12;
+  --cream2: #1A1A22;
+  --ink: #F5EFD8;
+  --ink2: #E8E0C8;
+  --ink3: #D0C8B0;
+  --ink4: #B0A890;
+  --ink5: #888070;
+  --ink6: #585050;
+  --lav100: rgba(160,144,216,0.15);
+  --lav200: rgba(160,144,216,0.25);
+  --sage100: rgba(139,176,154,0.15);
+  --sage200: rgba(139,176,154,0.25);
+  --blush100: rgba(240,160,160,0.12);
+  --border: rgba(255,255,255,0.07);
+  --border2: rgba(255,255,255,0.12);
+  --shadow-soft: 0 2px 16px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 32px rgba(0,0,0,0.4);
+  background: #0F0F12;
+  color: #F5EFD8;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 99px; }
+body.dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); }
+
+button, input, textarea, select { font-family: 'DM Sans', sans-serif; }
+input:focus, textarea:focus, select:focus { outline: none; }
+button { cursor: pointer; }
+
+/* ── ANIMATIONS ── */
+@keyframes shimmer {
+  0% { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(0.55); opacity: 0.35; }
+  40% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes chipPop {
+  from { opacity: 0; transform: scale(0.75); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseSoft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-slide-up { animation: slideUp 0.38s cubic-bezier(0.2,0,0,1) both; }
+.animate-fade-in  { animation: fadeIn 0.3s ease both; }
+.animate-float    { animation: float 3s ease-in-out infinite; }
+
+/* ── GRADIENT TEXT ── */
+.grad-text {
+  background: linear-gradient(130deg, var(--lav400) 0%, var(--sage400) 55%, var(--blush400) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── MESH BACKGROUND ── */
+.mesh-bg {
+  background-image:
+    radial-gradient(at 15% 25%, rgba(237,232,248,0.7) 0px, transparent 50%),
+    radial-gradient(at 85% 5%,  rgba(232,240,236,0.6) 0px, transparent 50%),
+    radial-gradient(at 5%  85%, rgba(253,232,232,0.5) 0px, transparent 50%),
+    radial-gradient(at 92% 88%, rgba(237,232,248,0.4) 0px, transparent 50%);
+}
+
+body.dark .mesh-bg {
+  background-image:
+    radial-gradient(at 15% 25%, rgba(107,88,184,0.1)  0px, transparent 50%),
+    radial-gradient(at 85% 5%,  rgba(92,132,112,0.1)  0px, transparent 50%),
+    radial-gradient(at 5%  85%, rgba(240,160,160,0.06) 0px, transparent 50%);
+}
+
+/* ── SHIMMER SKELETON ── */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.04) 25%,
+    rgba(0,0,0,0.09) 37%,
+    rgba(0,0,0,0.04) 63%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.7s infinite;
+  border-radius: var(--r);
+}
+
+body.dark .shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.04) 25%,
+    rgba(255,255,255,0.09) 37%,
+    rgba(255,255,255,0.04) 63%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.7s infinite;
+}
+
+/* ── DOTS LOADING ── */
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: dotBounce 1.2s infinite;
+  display: inline-block;
+}
+.dot:nth-child(2) { animation-delay: 0.15s; }
+.dot:nth-child(3) { animation-delay: 0.30s; }
